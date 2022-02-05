@@ -18,3 +18,11 @@ return link
 
 })
 gallery.append(...imageList)
+
+
+document.querySelector('gallery__link').onclick = () => {
+
+	basicLightbox.create(`
+		<img width="1400" height="900" src="galleryItems.original">
+	`).show()
+}
