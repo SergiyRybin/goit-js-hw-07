@@ -8,12 +8,11 @@ const imageList = galleryItems.map( element=>{
 const link = document.createElement("a")
 link.classList.add("gallery__link")
 
-
 const img = document.createElement("img")
 img.classList.add("gallery__image")
 img.src = element.preview
 img.alt = element.description
-img.dataset.source = "large-image.jpg"
+img.dataset.source = element.original
 
 link.append(img)
 return link
@@ -22,9 +21,15 @@ return link
 gallery.append(...imageList)
 
 
-// document.querySelector('gallery__link').onclick = () => {
 
-// 	basicLightbox.create(`
-// 		<img width="1400" height="900" src="galleryItems.original">
-// 	`).show()
-// }
+const qwas = document.querySelectorAll('.gallery__link img')
+
+qwas.forEach((event)=>{
+event.addEventListener("click",()=> {
+    basicLightbox.create(`
+      <div class="modal">
+          <img src=${event.dataset.source}>
+    </div>
+      `).show()
+  })
+})
