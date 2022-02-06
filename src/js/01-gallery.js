@@ -33,7 +33,6 @@ inst= basicLightbox.create(`
 `).show()
 const modal = document.querySelector(".modal")
 
-// modal.close()
   })
   const closeModal = document.addEventListener("keydown", event =>{
   if(event.code === "Escape")
@@ -41,16 +40,7 @@ const modal = document.querySelector(".modal")
  
   
 })
-// console.log(modal)
 
 })
 
 
-// const closeModal = document.addEventListener("keydown", event =>{
-//   if(event.code === "Escape")
-//   inst.close(()=>
-//   console.log(event.code)
-//   )
- 
-  
-// })
