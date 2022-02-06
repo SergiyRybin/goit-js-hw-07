@@ -22,14 +22,35 @@ gallery.append(...imageList)
 
 
 
-const qwas = document.querySelectorAll('.gallery__link img')
-
-qwas.forEach((event)=>{
+const galleryImage = document.querySelectorAll('.gallery__link img')
+let inst;
+const openModal = galleryImage.forEach((event)=>{
 event.addEventListener("click",()=> {
-    basicLightbox.create(`
-      <div class="modal">
-          <img src=${event.dataset.source}>
-    </div>
-      `).show()
+inst= basicLightbox.create(`
+<div class="modal">
+    <img src=${event.dataset.source}>
+</div>
+`).show()
+const modal = document.querySelector(".modal")
+
+// modal.close()
   })
+  const closeModal = document.addEventListener("keydown", event =>{
+  if(event.code === "Escape")
+  modal.remove()
+ 
+  
 })
+// console.log(modal)
+
+})
+
+
+// const closeModal = document.addEventListener("keydown", event =>{
+//   if(event.code === "Escape")
+//   inst.close(()=>
+//   console.log(event.code)
+//   )
+ 
+  
+// })
