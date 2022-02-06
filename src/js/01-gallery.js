@@ -16,31 +16,26 @@ img.dataset.source = element.original
 
 link.append(img)
 return link
-
 })
+
 gallery.append(...imageList)
 
 
 
 const galleryImage = document.querySelectorAll('.gallery__link img')
-let inst;
 const openModal = galleryImage.forEach((event)=>{
 event.addEventListener("click",()=> {
-inst= basicLightbox.create(`
-<div class="modal">
-    <img src=${event.dataset.source}>
+basicLightbox.create(`<div class="modal">
+    <img src=${event.dataset.source} width = 900vw >
 </div>
 `).show()
-const modal = document.querySelector(".modal")
 
-  })
-  const closeModal = document.addEventListener("keydown", event =>{
+
+document.addEventListener("keydown", event =>{
   if(event.code === "Escape")
-  modal.remove()
- 
-  
+  document.querySelector(".basicLightbox").remove()
 })
-
+})
 })
 
 

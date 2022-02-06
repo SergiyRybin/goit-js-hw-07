@@ -1,8 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
-
 const gallery = document.querySelector(".gallery")
 
 const imageList = galleryItems.map( element=>{
@@ -14,6 +12,7 @@ const img = document.createElement("img")
 img.classList.add("gallery__image")
 img.src = element.preview
 img.alt = element.description
+img.dataset.source = element.original
 
 link.append(img)
 return link
@@ -22,9 +21,24 @@ return link
 gallery.append(...imageList)
 
 
-document.querySelector('gallery__link').onclick = () => {
 
-	basicLightbox.create(`
-		<img width="1400" height="900" src="galleryItems.original">
-	`).show()
-}
+const galleryImage = document.querySelectorAll('.gallery__link img')
+let inst;
+const openModal = galleryImage.forEach((event)=>{
+event.addEventListener("click",()=> {
+inst= basicLightbox.create(`
+<div class="modal">
+    <img src=${event.dataset.source}>
+</div>
+`).show()
+const modal = document.querySelector(".modal")
+
+  })
+})
+
+
+// const closeModal = document.addEventListener("keydown", event =>{
+// 	if(event.code === "Escape")
+// 	modal.remove()
+//   })
+  
