@@ -30,10 +30,10 @@ basicLightbox.create(`<div class="modal">
 </div>
 `).show()
 
-
+const divBox = document.querySelector(".basicLightbox")
 document.addEventListener("keydown", event =>{
   if(event.code === "Escape")
-  document.querySelector(".basicLightbox").remove()
+ divBox.remove()
 })
 })
 })
