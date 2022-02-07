@@ -7,13 +7,13 @@ const gallery = document.querySelector(".gallery")
 const imageList = galleryItems.map( element=>{
 
 const list = document.createElement("li")
-
-  const link = document.createElement("a")
+const link = document.createElement("a")
 
 link.classList.add("gallery__item")
 link.href = element.original
 
 const img = document.createElement("img")
+
 img.style.display = "block"
 img.classList.add("gallery__image")
 img.src = element.preview
@@ -34,5 +34,5 @@ let galleryModal = new SimpleLightbox('.gallery a', {
   close: true,
   closeText: "&#x2612;",
   nav: true,
-  navText: ['&#8656;', ['&#8658;']]
+  navText: ['&#8656;','&#8658;']
 })
