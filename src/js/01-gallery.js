@@ -26,17 +26,21 @@ const galleryImage = document.querySelector('.gallery')
 
 
 const openModal = element => {
+  console.log(element)
   element.preventDefault()
   if(element.target.nodeName === "IMG"){
- basicLightbox.create(`<div class="modal">
+ const intanse = basicLightbox.create(`<div class="modal">
     <img src=${element.target.dataset.source} width = 900vw >
     </div>
-    `).show()
+    `)
+    intanse.show()
 
 const divBox = document.querySelector(".basicLightbox")
     document.addEventListener("keydown", event =>{
       if(event.code === "Escape")
-      divBox.remove()
+      intanse.close()
+      onClose: (intanse) => {};
+      event.stopPropagation()
 })}}
 galleryImage.addEventListener("click", openModal)
    
