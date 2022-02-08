@@ -22,23 +22,21 @@ gallery.append(...imageList)
 
 
 
-const galleryImage = document.querySelectorAll('.gallery__link img')
-const openModal = galleryImage.forEach((event)=>{
-  event.addEventListener("click",(element)=> {
-      element.preventDefault();
+const galleryImage = document.querySelector('.gallery')
 
 
-    basicLightbox.create(`<div class="modal">
-    <img src=${event.dataset.source} width = 900vw >
+const openModal = element => {
+  element.preventDefault()
+  if(element.target.nodeName === "IMG"){
+ basicLightbox.create(`<div class="modal">
+    <img src=${element.target.dataset.source} width = 900vw >
     </div>
     `).show()
-    
-    const divBox = document.querySelector(".basicLightbox")
+
+const divBox = document.querySelector(".basicLightbox")
     document.addEventListener("keydown", event =>{
       if(event.code === "Escape")
       divBox.remove()
-})
-})
-})
-
-
+})}}
+galleryImage.addEventListener("click", openModal)
+   
