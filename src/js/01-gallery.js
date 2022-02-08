@@ -34,13 +34,13 @@ const openModal = element => {
     </div>
     `)
     intanse.show()
+    onClose: (intanse) => {};
+
 
 const divBox = document.querySelector(".basicLightbox")
     document.addEventListener("keydown", event =>{
       if(event.code === "Escape")
       intanse.close()
-      onClose: (intanse) => {};
-      event.stopPropagation()
 })}}
 galleryImage.addEventListener("click", openModal)
    
